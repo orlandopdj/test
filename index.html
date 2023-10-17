@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  body {
+    display: block;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  h1 {
+    text-align: center;
+  }
+
+  #gay-question {
+    text-align: center;
+  }
+
+  #random-button {
+    display: none;
+    position: absolute;
+    font-size: 20px;
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    cursor: not-allowed;
+  }
+
+  #random-button.move {
+    animation: moveRandomButton 4s linear infinite;
+  }
+
+  @keyframes moveRandomButton {
+    0% {
+      left: 0;
+      top: 0;
+    }
+    25% {
+      left: 70%;
+      top: 10%;
+    }
+    50% {
+      left: 40%;
+      top: 80%;
+    }
+    75% {
+      left: 90%;
+      top: 50%;
+    }
+    100% {
+      left: 10%;
+      top: 30%;
+    }
+  }
+</style>
+</head>
+<body>
+  <h1>PESQUISA RÁPIDA</h1>
+  <section id="gay-question">
+    <h2>VOCÊ É GAY?</h2>
+    <button onclick="playMusicAndShowRandomButton('SIM')">SIM</button>
+    <button onclick="playMusicAndShowRandomButton('NÃO')">NÃO</button>
+  </section>
+  <button id="random-button" onclick="randomButtonClick()" style="display: none;">NÃO</button>
+  <audio id="music" src="chori-chori.mp3"></audio>
+  <script>
+    function playMusicAndShowRandomButton(userChoice) {
+      document.getElementById("music").play();
+      document.getElementById("gay-question").style.display = "none";
+      document.getElementById("random-button").style.display = "block";
+      document.getElementById("random-button").innerText = "NÃO";
+      if (userChoice === "SIM") {
+        document.getElementById("random-button").innerText = "SIM";
+      }
+      document.getElementById("random-button").classList.add("move");
+      document.getElementById("random-button").setAttribute("disabled", "disabled");
+    }
+
+    function randomButtonClick() {
+      // Nada acontece aqui, pois o botão está desativado
+    }
+  </script>
+</body>
+</html>
