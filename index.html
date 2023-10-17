@@ -27,6 +27,12 @@
     cursor: not-allowed;
   }
 
+  button {
+    width: 200px;
+    height: 100px;
+    font-size: 2em;
+  }
+
   #random-button.move {
     animation: moveRandomButton 4s linear infinite;
   }
@@ -71,7 +77,7 @@
       document.getElementById("random-button").style.display = "block";
       document.getElementById("random-button").innerText = "NÃO";
       if (userChoice === "SIM") {
-        document.getElementById("random-button").innerText = "SIM";
+        document.getElementById("random-button").innerText = "NAO";
       }
       document.getElementById("random-button").classList.add("move");
       document.getElementById("random-button").setAttribute("disabled", "disabled");
